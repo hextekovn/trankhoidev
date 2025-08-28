@@ -11,13 +11,26 @@
         
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #0a0a0a;
+            background-color: #000000;
             color: #e5e5e5;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Particle background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: #000000;
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, #6d28d9, #ec4899);
+            background: linear-gradient(90deg, #ffffff, #a0a0a0);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -30,14 +43,7 @@
         
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(109, 40, 217, 0.3);
-        }
-        
-        .bg-grid {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+            box-shadow: 0 10px 15px rgba(255, 255, 255, 0.2);
         }
         
         .pulse-animation {
@@ -46,13 +52,13 @@
         
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(109, 40, 217, 0.7);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(109, 40, 217, 0);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
             }
             100% {
-                box-shadow: 0 0 0 0 rgba(109, 40, 217, 0);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
             }
         }
         
@@ -66,25 +72,104 @@
             opacity: 1;
             visibility: visible;
         }
+        
+        /* Glass morphism effect */
+        .glass-effect {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Neon glow effect */
+        .neon-effect {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+                         0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .neon-effect:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                         0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #111111;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #555555;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777777;
+        }
+        
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid white;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
     </style>
 </head>
-<body class="bg-grid">
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
     <!-- Header/Navbar -->
-    <header class="bg-black bg-opacity-80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-800">
+    <header class="glass-effect fixed w-full z-50 border-b border-gray-800">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-robot text-white text-xl"></i>
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center neon-effect">
+                        <i class="fas fa-robot text-black text-xl"></i>
                     </div>
                     <span class="text-xl font-bold gradient-text">HEXTEKO VN</span>
                 </div>
                 
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#services" class="text-gray-300 hover:text-purple-400 transition">Dịch vụ</a>
-                    <a href="#about" class="text-gray-300 hover:text-purple-400 transition">Giới thiệu</a>
-                    <a href="#pricing" class="text-gray-300 hover:text-purple-400 transition">Bảng giá</a>
-                    <a href="#contact" class="text-gray-300 hover:text-purple-400 transition">Liên hệ</a>
+                    <a href="#services" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Dịch vụ</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Giới thiệu</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Bảng giá</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Liên hệ</a>
                 </nav>
                 
                 <button class="md:hidden text-gray-300 focus:outline-none" id="mobile-menu-button">
@@ -94,19 +179,19 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-black bg-opacity-90 backdrop-blur-md w-full px-4 py-2" id="mobile-menu">
+        <div class="md:hidden hidden glass-effect w-full px-4 py-2" id="mobile-menu">
             <div class="flex flex-col space-y-3 py-3">
-                <a href="#services" class="text-gray-300 hover:text-purple-400 transition">Dịch vụ</a>
-                <a href="#about" class="text-gray-300 hover:text-purple-400 transition">Giới thiệu</a>
-                <a href="#pricing" class="text-gray-300 hover:text-purple-400 transition">Bảng giá</a>
-                <a href="#contact" class="text-gray-300 hover:text-purple-400 transition">Liên hệ</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition py-2">Dịch vụ</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition py-2">Giới thiệu</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white transition py-2">Bảng giá</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition py-2">Liên hệ</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative py-20 md:py-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-full filter blur-3xl opacity-30"></div>
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-gray-700/20 rounded-full filter blur-3xl opacity-30"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
@@ -118,19 +203,19 @@
                         Chuyên cung cấp các dịch vụ bot Telegram, Discord, panel cheat và công cụ Red Team chất lượng cao với giá cả hợp lý.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#services" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105">
+                        <a href="#services" class="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 neon-effect">
                             Xem dịch vụ
                         </a>
-                        <a href="#contact" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 border border-gray-700">
+                        <a href="#contact" class="glass-effect hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition duration-300 border border-gray-700">
                             Liên hệ ngay
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-purple-600 rounded-full filter blur-xl opacity-20"></div>
-                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-pink-600 rounded-full filter blur-xl opacity-20"></div>
-                        <div class="relative bg-gray-900 bg-opacity-50 border border-gray-800 rounded-2xl p-6 backdrop-blur-sm card-hover">
+                    <div class="relative w-full max-w-md floating">
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-gray-600 rounded-full filter blur-xl opacity-20"></div>
+                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gray-400 rounded-full filter blur-xl opacity-20"></div>
+                        <div class="relative glass-effect rounded-2xl p-6 card-hover neon-effect">
                             <div class="flex items-center mb-6">
                                 <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                                 <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
@@ -138,10 +223,10 @@
                                 <div class="ml-4 text-gray-500 text-sm">bot_telegram.py</div>
                             </div>
                             <div class="bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                                <code class="text-green-400"># CyberTech Bot Services</code><br>
+                                <code class="text-green-400"># HEXTEKO Bot Services</code><br>
                                 <code class="text-gray-500">def create_bot():</code><br>
                                 <code class="text-blue-400 ml-4">"""Chất lượng - Uy tín - Bảo mật"""</code><br>
-                                <code class="text-purple-400 ml-4">features = ["Auto Reply", "Payment", "Security"]</code><br>
+                                <code class="text-white ml-4">features = ["Auto Reply", "Payment", "Security"]</code><br>
                                 <code class="text-yellow-400 ml-4">for feature in features:</code><br>
                                 <code class="text-red-400 ml-8">implement(feature)</code><br>
                                 <code class="text-gray-500">return success</code>
@@ -154,7 +239,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-black bg-opacity-50">
+    <section id="services" class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -167,9 +252,9 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-6 card-hover">
-                    <div class="w-14 h-14 bg-purple-600 bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-robot text-purple-400 text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Bot Telegram</h3>
                     <p class="text-gray-400 mb-4">
@@ -177,27 +262,27 @@
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-purple-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Auto Reply
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-purple-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Hệ thống thanh toán
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-purple-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Quản lý thành viên
                         </li>
                     </ul>
-                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn" data-service="Bot Telegram">
+                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn neon-effect" data-service="Bot Telegram">
                         Liên hệ ngay
                     </button>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-6 card-hover">
-                    <div class="w-14 h-14 bg-blue-600 bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fab fa-discord text-blue-400 text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fab fa-discord text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Bot Discord</h3>
                     <p class="text-gray-400 mb-4">
@@ -205,27 +290,27 @@
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-blue-400 mr-2"></i>
-                            Công cụ tiện ích
+                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            Công c cụ tiện ích
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Quản lý thành viên
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-blue-400 mr-2"></i>
-                            Các công cụ khác liên hệ để biết thêm chi tiết
+                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            Các công c cụ khác liên hệ để biết thêm chi tiết
                         </li>
                     </ul>
-                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn" data-service="Bot Discord">
+                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn neon-effect" data-service="Bot Discord">
                         Liên hệ ngay
                     </button>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-6 card-hover">
-                    <div class="w-14 h-14 bg-red-600 bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-gamepad text-red-400 text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-gamepad text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Panel Cheat Free Fire</h3>
                     <p class="text-gray-400 mb-4">
@@ -233,47 +318,47 @@
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             AIM, ESP, FAKE LAG
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Auto update
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Còn rất nhiều chức năng
                         </li>
                     </ul>
-                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn" data-service="Panel Cheat Free Fire">
+                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn neon-effect" data-service="Panel Cheat Free Fire">
                         Liên hệ ngay
                     </button>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-6 card-hover">
-                    <div class="w-14 h-14 bg-green-600 bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
+                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">C2 Red Team</h3>
                     <p class="text-gray-400 mb-4">
-                        Cung cấp các công cụ và giải pháp Red Team chuyên nghiệp cho bảo mật hệ thống.
+                        Cung cấp các công c cụ và giải pháp Red Team chuyên nghiệp cho bảo mật hệ thống.
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             CNC chuyên phục vụ DDoS
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Penetration testing
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <i class="fas fa-check-circle text-white mr-2"></i>
                             Custom exploits
                         </li>
                     </ul>
-                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn" data-service="C2 Red Team">
+                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition contact-btn neon-effect" data-service="C2 Red Team">
                         Liên hệ ngay
                     </button>
                 </div>
@@ -287,8 +372,8 @@
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
                     <div class="relative">
-                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-purple-600 rounded-full filter blur-xl opacity-20 z-0"></div>
-                        <div class="relative bg-gray-900 bg-opacity-50 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-gray-600 rounded-full filter blur-xl opacity-20 z-0"></div>
+                        <div class="relative glass-effect border border-gray-800 rounded-2xl p-8">
                             <h2 class="text-3xl font-bold mb-6 gradient-text">Về chúng tôi</h2>
                             <p class="text-gray-400 mb-4">
                                 HEXTEKO VN là đội ngũ chuyên gia công nghệ với nhiều thành viên trẻ trong lĩnh vực phát triển phần mềm, bot và các công cụ bảo mật.
@@ -298,26 +383,26 @@
                             </p>
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-purple-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-check text-purple-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-white"></i>
                                     </div>
                                     <span class="text-gray-300">Uy tín</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-blue-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-lock text-blue-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-lock text-white"></i>
                                     </div>
                                     <span class="text-gray-300">Bảo mật</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-pink-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-bolt text-pink-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-bolt text-white"></i>
                                     </div>
                                     <span class="text-gray-300">Hiệu suất</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-green-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-headset text-green-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-headset text-white"></i>
                                     </div>
                                     <span class="text-gray-300">Hỗ trợ</span>
                                 </div>
@@ -326,13 +411,13 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-2xl p-8 backdrop-blur-sm">
+                    <div class="glass-effect border border-gray-800 rounded-2xl p-8">
                         <h3 class="text-2xl font-bold mb-6 gradient-text">Tại sao chọn chúng tôi?</h3>
                         <div class="space-y-6">
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-4">
-                                    <div class="w-12 h-12 bg-purple-600 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-code text-purple-400 text-xl"></i>
+                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-code text-white text-xl"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -344,8 +429,8 @@
                             </div>
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-4">
-                                    <div class="w-12 h-12 bg-blue-600 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-shield-alt text-blue-400 text-xl"></i>
+                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-white text-xl"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -357,8 +442,8 @@
                             </div>
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-4">
-                                    <div class="w-12 h-12 bg-pink-600 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-clock text-pink-400 text-xl"></i>
+                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-clock text-white text-xl"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -376,7 +461,7 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-20 bg-black bg-opacity-50">
+    <section id="pricing" class="py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -389,7 +474,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- Basic Plan -->
-                <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-6 card-hover">
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold mb-2">Gói Cơ Bản</h3>
                         <div class="text-4xl font-bold mb-2 gradient-text">700.000đ</div>
@@ -397,15 +482,15 @@
                     </div>
                     <ul class="text-gray-400 space-y-3 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Bot Telegram & bot Discord 
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Tính năng cơ bản
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Hỗ trợ 1 tuần
                         </li>
                         <li class="flex items-center text-gray-500">
@@ -417,50 +502,50 @@
                             Không tùy chỉnh phức tạp
                         </li>
                     </ul>
-                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3 rounded-lg transition contact-btn" data-service="Gói Cơ Bản - 700.000đ">
+                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3 rounded-lg transition contact-btn neon-effect" data-service="Gói Cơ Bản - 700.000đ">
                         Liên hệ đặt hàng
                     </button>
                 </div>
                 
                 <!-- Popular Plan -->
-                <div class="bg-gray-900 border border-purple-500 rounded-xl p-6 card-hover transform scale-105 relative">
-                    <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                <div class="glass-effect border border-white rounded-xl p-6 card-hover transform scale-105 relative neon-effect">
+                    <div class="absolute top-0 right-0 bg-white text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                         PHỔ BIẾN
                     </div>
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold mb-2">Gói Nâng Cao</h3>
-                        <div class="text-4xl font-bold mb-2 gradient-text">1.600.000</div>
+        <div class="text-4xl font-bold mb-2 gradient-text">1.600.000đ</div>
                         <div class="text-gray-400">/ dự án</div>
                     </div>
                     <ul class="text-gray-400 space-y-3 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Bot Telegram & bot Discord & Panel cheat & C2
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Nâng cao hơn gói cơ bản
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Hỗ trợ 1 tháng
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Bảo mật cơ bản
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Hỗ trợ Red Team
                         </li>
                     </ul>
-                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg transition contact-btn" data-service="Gói Nâng Cao - 1.600.000đ">
+                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Gói Nâng Cao - 1.600.000đ">
                         Liên hệ đặt hàng
                     </button>
                 </div>
                 
                 <!-- Premium Plan -->
-                <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-6 card-hover">
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold mb-2">Gói Cao Cấp</h3>
                         <div class="text-4xl font-bold mb-2 gradient-text">5.500.000đ</div>
@@ -468,27 +553,27 @@
                     </div>
                     <ul class="text-gray-400 space-y-3 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Bot/panel đầy đủ tính năng
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Công cụ Red Team cơ bản & kèm bot Discord và Telegram cả Panel
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Hỗ trợ 3 tháng
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Bảo mật nâng cao
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-purple-400 mr-2"></i>
+                            <i class="fas fa-check text-white mr-2"></i>
                             Tùy chỉnh theo yêu cầu
                         </li>
                     </ul>
-                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3 rounded-lg transition contact-btn" data-service="Gói Cao Cấp - 5.000.000đ">
+                    <button class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3 rounded-lg transition contact-btn neon-effect" data-service="Gói Cao Cấp - 5.000.000đ">
                         Liên hệ đặt hàng
                     </button>
                 </div>
@@ -498,7 +583,7 @@
                 <p class="text-gray-400 mb-6">
                     * Giá trên chỉ mang tính chất tham khảo. Giá chính xác sẽ được báo sau khi trao đổi cụ thể về yêu cầu.
                 </p>
-                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition border border-gray-700 contact-btn" data-service="Yêu cầu báo giá custom">
+                <button class="glass-effect hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition border border-gray-700 contact-btn neon-effect" data-service="Yêu cầu báo giá custom">
                     Yêu cầu báo giá custom
                 </button>
             </div>
@@ -519,14 +604,14 @@
             
             <div class="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
                 <div class="md:w-1/2">
-                    <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-8 h-full">
+                    <div class="glass-effect border border-gray-800 rounded-xl p-8 h-full">
                         <h3 class="text-2xl font-bold mb-6 gradient-text">Thông tin liên hệ</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-4 mt-1">
-                                    <div class="w-10 h-10 bg-purple-600 bg-opacity-20 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-envelope text-purple-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-white"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -537,8 +622,8 @@
                             
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-4 mt-1">
-                                    <div class="w-10 h-10 bg-blue-600 bg-opacity-20 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-phone-alt text-blue-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-white"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -546,13 +631,11 @@
                                     <p class="text-gray-400">0963009425</p>
                                 </div>
                             </div>
-                            
-                            
-                            
+                                                        
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-4 mt-1">
-                                    <div class="w-10 h-10 bg-green-600 bg-opacity-20 rounded-full flex items-center justify-center">
-                                        <i class="fab fa-discord text-green-400"></i>
+                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                        <i class="fab fa-discord text-white"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -565,20 +648,20 @@
                 </div>
                 
                 <div class="md:w-1/2">
-                    <div class="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl p-8 h-full">
+                    <div class="glass-effect border border-gray-800 rounded-xl p-8 h-full">
                         <h3 class="text-2xl font-bold mb-6 gradient-text">Gửi tin nhắn</h3>
                         <form id="contact-form">
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-300 mb-2">Họ và tên</label>
-                                <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white">
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="block text-gray-300 mb-2">Email</label>
-                                <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white">
                             </div>
                             <div class="mb-4">
                                 <label for="service" class="block text-gray-300 mb-2">Dịch vụ quan tâm</label>
-                                <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white">
                                     <option value="">Chọn dịch vụ</option>
                                     <option value="Bot Telegram">Bot Telegram</option>
                                     <option value="Bot Discord">Bot Discord</option>
@@ -589,9 +672,9 @@
                             </div>
                             <div class="mb-6">
                                 <label for="message" class="block text-gray-300 mb-2">Nội dung</label>
-                                <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                                <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition">
+                            <button type="submit" class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg font-medium transition neon-effect">
                                 Gửi tin nhắn
                             </button>
                         </form>
@@ -602,33 +685,33 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black bg-opacity-80 py-12 border-t border-gray-800">
+    <footer class="glass-effect py-12 border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-6 md:mb-0">
-                    <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
-                        <i class="fas fa-robot text-white text-xl"></i>
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center neon-effect">
+                        <i class="fas fa-robot text-black text-xl"></i>
                     </div>
                     <span class="text-xl font-bold gradient-text">HEXTEKO VN</span>
                 </div>
                 
                 <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-facebook-f text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-telegram text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-discord text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-purple-400 transition">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-github text-xl"></i>
                     </a>
                 </div>
                 
                 <div class="text-gray-400 text-sm">
-                    &copy; 2025 CyberTech Solutions. All rights reserved.
+                    &copy; 2025 HEXTEKO VN. All rights reserved.
                 </div>
             </div>
         </div>
@@ -636,7 +719,7 @@
 
     <!-- Contact Modal -->
     <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm contact-modal" id="contact-modal">
-        <div class="bg-gray-900 border border-gray-800 rounded-xl max-w-md w-full mx-4 relative">
+        <div class="glass-effect border border-gray-800 rounded-xl max-w-md w-full mx-4 relative neon-effect">
             <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="close-modal">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -647,8 +730,8 @@
                 
                 <div class="bg-gray-800 rounded-lg p-4 mb-6">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-purple-600 bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-university text-purple-400 text-xl"></i>
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-white text-xl"></i>
                         </div>
                         <div>
                             <h4 class="font-bold">TRAN PHAM ANH KHOI</h4>
@@ -662,10 +745,10 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-400">Số tiền:</span>
-                            <span class="font-mono text-purple-400" id="modal-price">liên hệ để biết chi tiết</span>
+                            <span class="font-mono text-white" id="modal-price">liên hệ để biết chi tiết</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="ext-gray-400">Nội dung:</span>
+                            <span class="text-gray-400">Nội dung:</span>
                             <span class="font-mono">THÔNG TIN LIÊN HỆ <span id="modal-service-code"></span></span>
                         </div>
                     </div>
@@ -674,18 +757,18 @@
                 <div class="mb-6">
                     <h4 class="font-bold mb-2">Sau khi chuyển khoản, vui lòng liên hệ:</h4>
                     <div class="flex items-center space-x-4">
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fab fa-telegram text-blue-400 mr-2"></i>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center neon-effect">
+                            <i class="fab fa-discord text-white mr-2"></i>
                             Discord
                         </a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-phone-alt text-green-400 mr-2"></i>
+                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center neon-effect">
+                            <i class="fas fa-phone-alt text-white mr-2"></i>
                             0963009425
                         </a>
                     </div>
                 </div>
                 
-                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition" id="confirm-payment">
+                <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg font-medium transition neon-effect" id="confirm-payment">
                     <i class="fas fa-check-circle mr-2"></i> Tôi đã chuyển khoản
                 </button>
             </div>
@@ -694,13 +777,125 @@
 
     <!-- Success Toast -->
     <div class="fixed bottom-4 right-4 z-50 hidden" id="success-toast">
-        <div class="bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center">
+        <div class="bg-white text-black px-6 py-3 rounded-lg shadow-lg flex items-center neon-effect">
             <i class="fas fa-check-circle mr-2"></i>
             <span>Đã gửi thông tin thành công! Chúng tôi sẽ liên hệ lại sớm.</span>
         </div>
     </div>
 
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "bottom",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -799,6 +994,14 @@
                 }
             });
         });
+
+        // Add typewriter effect to hero section
+        setTimeout(() => {
+            const heroSubtitle = document.querySelector('#hero-subtitle');
+            if (heroSubtitle) {
+                heroSubtitle.classList.add('typewriter');
+            }
+        }, 500);
     </script>
 </body>
 </html>
