@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEXTEKO VN - Dịch vụ Tool & Bot chất lượng</title>
+    <title>HEXTEKO VN - Giải Pháp Công Nghệ Chuyên Nghiệp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #000000;
-            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f3f4f6;
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
@@ -26,24 +26,24 @@
             top: 0;
             left: 0;
             z-index: -1;
-            background-color: #000000;
+            background-color: #0a0a0a;
         }
         
         .gradient-text {
-            background: linear-gradient(90deg, #ffffff, #a0a0a0);
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(59, 130, 246, 0.15);
         }
         
         .pulse-animation {
@@ -52,13 +52,13 @@
         
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+                box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
             }
             100% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
             }
         }
         
@@ -75,10 +75,10 @@
         
         /* Glass morphism effect */
         .glass-effect {
-            background: rgba(30, 30, 30, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         /* Floating animation */
@@ -87,7 +87,7 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
             100% {
                 transform: translateY(0px);
@@ -98,39 +98,28 @@
             animation: float 6s ease-in-out infinite;
         }
         
-        /* Neon glow effect */
-        .neon-effect {
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
-                         0 0 20px rgba(255, 255, 255, 0.1);
-        }
-        
-        .neon-effect:hover {
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
-                         0 0 30px rgba(255, 255, 255, 0.2);
-        }
-        
         /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
         }
         
         ::-webkit-scrollbar-track {
-            background: #111111;
+            background: #111827;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: #555555;
+            background: #3b82f6;
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #777777;
+            background: #2563eb;
         }
         
         /* Typewriter effect */
         .typewriter {
             overflow: hidden;
-            border-right: .15em solid white;
+            border-right: .15em solid #3b82f6;
             white-space: nowrap;
             margin: 0 auto;
             letter-spacing: .15em;
@@ -146,7 +135,67 @@
         
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: white; }
+            50% { border-color: #3b82f6; }
+        }
+        
+        /* Gradient border */
+        .gradient-border {
+            position: relative;
+            border-radius: 0.75rem;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 0.75rem;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        /* Section divider */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.5), rgba(59, 130, 246, 0));
+        }
+        
+        /* Input focus */
+        .input-focus:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Feature icon */
+        .feature-icon {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+        
+        /* Highlight text */
+        .highlight-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background-color: rgba(59, 130, 246, 0.3);
+            z-index: -1;
+            transform: skewX(-15deg);
         }
     </style>
 </head>
@@ -156,76 +205,76 @@
     
     <!-- Header/Navbar -->
     <header class="glass-effect fixed w-full z-50 border-b border-gray-800">
-        <div class="container mx-auto px-4 py-4">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center glow-box">
-                    <i class="fas fa-terminal text-black text-xl"></i>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-terminal text-gray-900 text-xl"></i>
                     </div>
                     <span class="text-xl font-bold gradient-text">HEXTEKO VN</span>
                 </div>
                 
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#services" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Dịch vụ</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Giới thiệu</a>
-                    <a href="#pricing" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Bảng giá</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-white">Liên hệ</a>
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-blue-500">Dịch vụ</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-blue-500">Giới thiệu</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-blue-500">Bảng giá</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition hover:underline hover:underline-offset-8 hover:decoration-blue-500">Liên hệ</a>
                 </nav>
                 
-                <button class="md:hidden text-gray-300 focus:outline-none" id="mobile-menu-button">
+                <button class="lg:hidden text-gray-300 focus:outline-none" id="mobile-menu-button">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden glass-effect w-full px-4 py-2" id="mobile-menu">
-            <div class="flex flex-col space-y-3 py-3">
-                <a href="#services" class="text-gray-300 hover:text-white transition py-2">Dịch vụ</a>
-                <a href="#about" class="text-gray-300 hover:text-white transition py-2">Giới thiệu</a>
-                <a href="#pricing" class="text-gray-300 hover:text-white transition py-2">Bảng giá</a>
+        <div class="lg:hidden hidden glass-effect w-full px-6 py-3" id="mobile-menu">
+            <div class="flex flex-col space-y-4 py-3">
+                <a href="#services" class="text-gray-300 hover:text-white transition py-2 border-b border-gray-800">Dịch vụ</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition py-2 border-b border-gray-800">Giới thiệu</a>
+                <a href="#pricing" class="text-gray-300 hover:text-white transition py-2 border-b border-gray-800">Bảng giá</a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition py-2">Liên hệ</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/20 to-gray-700/20 rounded-full filter blur-3xl opacity-30"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-full filter blur-3xl opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                         <span class="gradient-text">Giải pháp công nghệ</span><br>
-                        <span class="text-white">cho mọi nhu cầu</span>
+                        <span class="text-white">chuyên nghiệp</span>
                     </h1>
-                    <p class="text-gray-400 text-lg mb-8">
-                        Chuyên cung cấp các dịch vụ bot Telegram, Discord, panel cheat và công cụ Red Team chất lượng cao với giá cả hợp lý.
+                    <p class="text-gray-400 text-lg mb-8 max-w-lg">
+                        Chúng tôi cung cấp các giải pháp công nghệ cao cấp bao gồm bot Telegram, Discord, panel cheat và công cụ Red Team với chất lượng vượt trội.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#services" class="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 neon-effect">
-                            Xem dịch vụ
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-medium transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/20">
+                            <i class="fas fa-list-ul mr-2"></i> Xem dịch vụ
                         </a>
-                        <a href="#contact" class="glass-effect hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition duration-300 border border-gray-700">
-                            Liên hệ ngay
+                        <a href="#contact" class="glass-effect hover:bg-gray-800/50 text-white px-6 py-3 rounded-lg font-medium transition duration-300 border border-gray-700 hover:border-blue-500">
+                            <i class="fas fa-phone-alt mr-2"></i> Liên hệ ngay
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
+                <div class="lg:w-1/2 flex justify-center mt-12 lg:mt-0">
                     <div class="relative w-full max-w-md floating">
-                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-gray-600 rounded-full filter blur-xl opacity-20"></div>
-                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gray-400 rounded-full filter blur-xl opacity-20"></div>
-                        <div class="relative glass-effect rounded-2xl p-6 card-hover neon-effect">
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-blue-600 rounded-full filter blur-xl opacity-20"></div>
+                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-600 rounded-full filter blur-xl opacity-20"></div>
+                        <div class="relative glass-effect rounded-2xl p-6 card-hover gradient-border">
                             <div class="flex items-center mb-6">
                                 <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
                                 <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
                                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                                <div class="ml-4 text-gray-500 text-sm">bot_telegram.py</div>
+                                <div class="ml-4 text-gray-500 text-sm font-mono">hexteko_bot.py</div>
                             </div>
-                            <div class="bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                                <code class="text-green-400"># HEXTEKO Bot Services</code><br>
-                                <code class="text-gray-500">def create_bot():</code><br>
-                                <code class="text-blue-400 ml-4">"""Chất lượng - Uy tín - Bảo mật"""</code><br>
+                            <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                                <code class="text-blue-400"># HEXTEKO Premium Services</code><br>
+                                <code class="text-gray-500">def create_solution():</code><br>
+                                <code class="text-purple-400 ml-4">"""Chất lượng - Bảo mật - Hiệu suất"""</code><br>
                                 <code class="text-white ml-4">features = ["Auto Reply", "Payment", "Security"]</code><br>
                                 <code class="text-yellow-400 ml-4">for feature in features:</code><br>
                                 <code class="text-red-400 ml-8">implement(feature)</code><br>
@@ -240,21 +289,21 @@
 
     <!-- Services Section -->
     <section id="services" class="py-20">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="gradient-text">Dịch vụ của chúng tôi</span>
                 </h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">
-                    Cung cấp các giải pháp công nghệ chất lượng cao, đáp ứng mọi nhu cầu của khách hàng
+                    Các giải pháp công nghệ được thiết kế chuyên nghiệp, đáp ứng mọi yêu cầu khắt khe nhất
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Service 1 -->
-                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
-                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-robot text-white text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover hover:border-blue-500/50">
+                    <div class="feature-icon w-14 h-14 mb-4">
+                        <i class="fas fa-robot text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Bot Telegram</h3>
                     <p class="text-gray-400 mb-4">
@@ -262,27 +311,27 @@
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             Auto Reply
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             Hệ thống thanh toán
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             Quản lý thành viên
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Bot Telegram">
-                        Liên hệ ngay
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="Bot Telegram">
+                        <i class="fas fa-paper-plane mr-2"></i> Liên hệ ngay
                     </button>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
-                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fab fa-discord text-white text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover hover:border-blue-500/50">
+                    <div class="feature-icon w-14 h-14 mb-4">
+                        <i class="fab fa-discord text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Bot Discord</h3>
                     <p class="text-gray-400 mb-4">
@@ -290,27 +339,27 @@
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
-                            Công c cụ tiện ích
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            Công cụ tiện ích
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             Quản lý thành viên
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
-                            Các công c cụ khác liên hệ để biết thêm chi tiết
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            Tích hợp nhiều tính năng
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Bot Discord">
-                        Liên hệ ngay
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="Bot Discord">
+                        <i class="fas fa-paper-plane mr-2"></i> Liên hệ ngay
                     </button>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
-                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-gamepad text-white text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover hover:border-blue-500/50">
+                    <div class="feature-icon w-14 h-14 mb-4">
+                        <i class="fas fa-gamepad text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Panel Cheat Free Fire</h3>
                     <p class="text-gray-400 mb-4">
@@ -318,91 +367,94 @@
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             AIM, ESP, FAKE LAG
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             Auto update
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
-                            Còn rất nhiều chức năng
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            Nhiều chức năng khác
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Panel Cheat Free Fire">
-                        Liên hệ ngay
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="Panel Cheat Free Fire">
+                        <i class="fas fa-paper-plane mr-2"></i> Liên hệ ngay
                     </button>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
-                    <div class="w-14 h-14 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover hover:border-blue-500/50">
+                    <div class="feature-icon w-14 h-14 mb-4">
+                        <i class="fas fa-shield-alt text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">C2 Red Team</h3>
                     <p class="text-gray-400 mb-4">
-                        Cung cấp các công c cụ và giải pháp Red Team chuyên nghiệp cho bảo mật hệ thống.
+                        Cung cấp các công cụ và giải pháp Red Team chuyên nghiệp cho bảo mật hệ thống.
                     </p>
                     <ul class="text-gray-400 space-y-2 mb-6">
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             CNC chuyên phục vụ DDoS
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
-                            Penetration testing 
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            Penetration testing
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check-circle text-white mr-2"></i>
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
                             Custom exploits
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="C2 Red Team">
-                        Liên hệ ngay
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="C2 Red Team">
+                        <i class="fas fa-paper-plane mr-2"></i> Liên hệ ngay
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="section-divider my-12"></div>
+
     <!-- About Section -->
     <section id="about" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-10">
                     <div class="relative">
-                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-gray-600 rounded-full filter blur-xl opacity-20 z-0"></div>
-                        <div class="relative glass-effect border border-gray-800 rounded-2xl p-8">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-600 rounded-full filter blur-xl opacity-20 z-0"></div>
+                        <div class="relative glass-effect border border-gray-800 rounded-2xl p-8 hover:border-blue-500/50">
                             <h2 class="text-3xl font-bold mb-6 gradient-text">Về chúng tôi</h2>
                             <p class="text-gray-400 mb-4">
-                                HEXTEKO VN là đội ngũ chuyên gia công nghệ với nhiều thành viên trẻ trong lĩnh vực phát triển phần mềm, bot và các công cụ bảo mật.
+                                HEXTEKO VN là đội ngũ chuyên gia công nghệ với nhiều kinh nghiệm trong lĩnh vực phát triển phần mềm, bot và các công cụ bảo mật.
                             </p>
                             <p class="text-gray-400 mb-6">
-                                Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng cao, bảo mật và ổn định với giá cả hợp lý nhất.
+                                Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng cao, bảo mật và ổn định với giá cả cạnh tranh nhất thị trường.
                             </p>
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-check text-white"></i>
+                                    <div class="feature-icon w-10 h-10 mr-3">
+                                        <i class="fas fa-check"></i>
                                     </div>
                                     <span class="text-gray-300">Uy tín</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-lock text-white"></i>
+                                    <div class="feature-icon w-10 h-10 mr-3">
+                                        <i class="fas fa-lock"></i>
                                     </div>
                                     <span class="text-gray-300">Bảo mật</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-bolt text-white"></i>
+                                    <div class="feature-icon w-10 h-10 mr-3">
+                                        <i class="fas fa-bolt"></i>
                                     </div>
                                     <span class="text-gray-300">Hiệu suất</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-headset text-white"></i>
+                                    <div class="feature-icon w-10 h-10 mr-3">
+                                        <i class="fas fa-headset"></i>
                                     </div>
                                     <span class="text-gray-300">Hỗ trợ</span>
                                 </div>
@@ -410,46 +462,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <div class="glass-effect border border-gray-800 rounded-2xl p-8">
+                <div class="lg:w-1/2">
+                    <div class="glass-effect border border-gray-800 rounded-2xl p-8 hover:border-blue-500/50">
                         <h3 class="text-2xl font-bold mb-6 gradient-text">Tại sao chọn chúng tôi?</h3>
                         <div class="space-y-6">
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-4">
-                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-code text-white text-xl"></i>
+                                    <div class="feature-icon w-12 h-12">
+                                        <i class="fas fa-code text-xl"></i>
                                     </div>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-semibold mb-2">Code chất lượng</h4>
                                     <p class="text-gray-400">
-                                        Code được tối ưu, dễ bảo trì và mở rộng, đảm bảo hiệu suất cao nhất và được phát triển bởi các người trẻ nhiệt huyết.
+                                        Code được tối ưu, dễ bảo trì và mở rộng, đảm bảo hiệu suất cao nhất và được phát triển bởi các chuyên gia.
                                     </p>
                                 </div>
                             </div>
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-4">
-                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                                    <div class="feature-icon w-12 h-12">
+                                        <i class="fas fa-shield-alt text-xl"></i>
                                     </div>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-semibold mb-2">Bảo mật tối đa</h4>
                                     <p class="text-gray-400">
-                                        Áp dụng các biện pháp bảo mật tiên tiến để bảo vệ sản phẩm và dữ liệu của bạn.
+                                        Áp dụng các biện pháp bảo mật tiên tiến nhất để bảo vệ sản phẩm và dữ liệu của khách hàng.
                                     </p>
                                 </div>
                             </div>
                             <div class="flex">
                                 <div class="flex-shrink-0 mr-4">
-                                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-clock text-white text-xl"></i>
+                                    <div class="feature-icon w-12 h-12">
+                                        <i class="fas fa-clock text-xl"></i>
                                     </div>
                                 </div>
                                 <div>
                                     <h4 class="text-lg font-semibold mb-2">Giao hàng đúng hẹn</h4>
                                     <p class="text-gray-400">
-                                        Cam kết giao sản phẩm đúng thời hạn với chất lượng như đã thỏa thuận.
+                                        Cam kết giao sản phẩm đúng thời hạn với chất lượng như đã thỏa thuận, không trễ hẹn.
                                     </p>
                                 </div>
                             </div>
@@ -460,21 +512,24 @@
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="section-divider my-12"></div>
+
     <!-- Pricing Section -->
     <section id="pricing" class="py-20">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="gradient-text">Bảng giá dịch vụ</span>
                 </h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">
-                    Giá cả hợp lý với nhiều gói dịch vụ đa dạng phù hợp với mọi nhu cầu của khách hàng
+                    Giá cả cạnh tranh với nhiều gói dịch vụ đa dạng phù hợp với mọi nhu cầu của khách hàng
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 <!-- Basic Plan -->
-                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover hover:border-blue-500/50">
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold mb-2">Gói Cơ Bản</h3>
                         <div class="text-4xl font-bold mb-2 gradient-text">700.000đ</div>
@@ -482,15 +537,15 @@
                     </div>
                     <ul class="text-gray-400 space-y-3 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
-                            Bot Telegram & bot Discord 
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
+                            Bot Telegram & bot Discord
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Tính năng cơ bản
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Hỗ trợ 1 tuần
                         </li>
                         <li class="flex items-center text-gray-500">
@@ -502,50 +557,50 @@
                             Không tùy chỉnh phức tạp
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Gói Cơ Bản - 700.000đ">
-                        Liên hệ đặt hàng
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="Gói Cơ Bản - 700.000đ">
+                        <i class="fas fa-shopping-cart mr-2"></i> Đặt hàng ngay
                     </button>
                 </div>
                 
                 <!-- Popular Plan -->
-                <div class="glass-effect border border-white rounded-xl p-6 card-hover transform scale-105 relative neon-effect">
-                    <div class="absolute top-0 right-0 bg-white text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                <div class="glass-effect border border-blue-500 rounded-xl p-6 card-hover transform scale-105 relative gradient-border">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                         PHỔ BIẾN
                     </div>
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold mb-2">Gói Nâng Cao</h3>
-        <div class="text-4xl font-bold mb-2 gradient-text">1.600.000đ</div>
+                        <div class="text-4xl font-bold mb-2 gradient-text">1.600.000đ</div>
                         <div class="text-gray-400">/ dự án</div>
                     </div>
                     <ul class="text-gray-400 space-y-3 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Bot Telegram & bot Discord & Panel cheat & C2
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Nâng cao hơn gói cơ bản
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Hỗ trợ 1 tháng
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Bảo mật cơ bản
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Hỗ trợ Red Team
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Gói Nâng Cao - 1.600.000đ">
-                        Liên hệ đặt hàng
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="Gói Nâng Cao - 1.600.000đ">
+                        <i class="fas fa-shopping-cart mr-2"></i> Đặt hàng ngay
                     </button>
                 </div>
                 
                 <!-- Premium Plan -->
-                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover neon-effect">
+                <div class="glass-effect border border-gray-800 rounded-xl p-6 card-hover hover:border-blue-500/50">
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-bold mb-2">Gói Cao Cấp</h3>
                         <div class="text-4xl font-bold mb-2 gradient-text">5.500.000đ</div>
@@ -553,28 +608,28 @@
                     </div>
                     <ul class="text-gray-400 space-y-3 mb-8">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Bot/panel đầy đủ tính năng
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
-                            Công cụ Red Team cơ bản & kèm bot Discord và Telegram cả Panel
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
+                            Công cụ Red Team & kèm bot
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Hỗ trợ 3 tháng
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Bảo mật nâng cao
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-white mr-2"></i>
+                            <i class="fas fa-check text-blue-500 mr-2"></i>
                             Tùy chỉnh theo yêu cầu
                         </li>
                     </ul>
-                    <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg transition contact-btn neon-effect" data-service="Gói Cao Cấp - 5.000.000đ">
-                        Liên hệ đặt hàng
+                    <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg transition contact-btn shadow hover:shadow-blue-500/20" data-service="Gói Cao Cấp - 5.500.000đ">
+                        <i class="fas fa-shopping-cart mr-2"></i> Đặt hàng ngay
                     </button>
                 </div>
             </div>
@@ -583,16 +638,19 @@
                 <p class="text-gray-400 mb-6">
                     * Giá trên chỉ mang tính chất tham khảo. Giá chính xác sẽ được báo sau khi trao đổi cụ thể về yêu cầu.
                 </p>
-                <button class="glass-effect hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition border border-gray-700 contact-btn neon-effect" data-service="Yêu cầu báo giá custom">
-                    Yêu cầu báo giá custom
+                <button class="glass-effect hover:bg-gray-800/50 text-white px-6 py-3 rounded-lg font-medium transition border border-gray-700 hover:border-blue-500 contact-btn shadow hover:shadow-blue-500/20" data-service="Yêu cầu báo giá custom">
+                    <i class="fas fa-file-invoice-dollar mr-2"></i> Yêu cầu báo giá custom
                 </button>
             </div>
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="section-divider my-12"></div>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="gradient-text">Liên hệ với chúng tôi</span>
@@ -602,16 +660,16 @@
                 </p>
             </div>
             
-            <div class="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
-                <div class="md:w-1/2">
-                    <div class="glass-effect border border-gray-800 rounded-xl p-8 h-full">
+            <div class="flex flex-col lg:flex-row gap-8 max-w-5xl mx-auto">
+                <div class="lg:w-1/2">
+                    <div class="glass-effect border border-gray-800 rounded-xl p-8 h-full hover:border-blue-500/50">
                         <h3 class="text-2xl font-bold mb-6 gradient-text">Thông tin liên hệ</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-4 mt-1">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-envelope text-white"></i>
+                                    <div class="feature-icon w-10 h-10">
+                                        <i class="fas fa-envelope"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -622,8 +680,8 @@
                             
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-4 mt-1">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-phone-alt text-white"></i>
+                                    <div class="feature-icon w-10 h-10">
+                                        <i class="fas fa-phone-alt"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -631,11 +689,11 @@
                                     <p class="text-gray-400">0963009425</p>
                                 </div>
                             </div>
-                                                        
+                            
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 mr-4 mt-1">
-                                    <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                                        <i class="fab fa-discord text-white"></i>
+                                    <div class="feature-icon w-10 h-10">
+                                        <i class="fab fa-discord"></i>
                                     </div>
                                 </div>
                                 <div>
@@ -647,21 +705,21 @@
                     </div>
                 </div>
                 
-                <div class="md:w-1/2">
-                    <div class="glass-effect border border-gray-800 rounded-xl p-8 h-full">
+                <div class="lg:w-1/2">
+                    <div class="glass-effect border border-gray-800 rounded-xl p-8 h-full hover:border-blue-500/50">
                         <h3 class="text-2xl font-bold mb-6 gradient-text">Gửi tin nhắn</h3>
                         <form id="contact-form">
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-300 mb-2">Họ và tên</label>
-                                <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white">
+                                <input type="text" id="name" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none input-focus">
                             </div>
                             <div class="mb-4">
                                 <label for="email" class="block text-gray-300 mb-2">Email</label>
-                                <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white">
+                                <input type="email" id="email" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none input-focus">
                             </div>
                             <div class="mb-4">
                                 <label for="service" class="block text-gray-300 mb-2">Dịch vụ quan tâm</label>
-                                <select id="service" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white">
+                                <select id="service" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none input-focus">
                                     <option value="">Chọn dịch vụ</option>
                                     <option value="Bot Telegram">Bot Telegram</option>
                                     <option value="Bot Discord">Bot Discord</option>
@@ -672,10 +730,10 @@
                             </div>
                             <div class="mb-6">
                                 <label for="message" class="block text-gray-300 mb-2">Nội dung</label>
-                                <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white"></textarea>
+                                <textarea id="message" rows="4" class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none input-focus"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg font-medium transition neon-effect">
-                                Gửi tin nhắn
+                            <button type="submit" class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg font-medium transition shadow hover:shadow-blue-500/20">
+                                <i class="fas fa-paper-plane mr-2"></i> Gửi tin nhắn
                             </button>
                         </form>
                     </div>
@@ -686,26 +744,26 @@
 
     <!-- Footer -->
     <footer class="glass-effect py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-2 mb-6 md:mb-0">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center glow-box">
-                    <i class="fas fa-terminal text-black text-xl"></i>
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-terminal text-gray-900 text-xl"></i>
                     </div>
                     <span class="text-xl font-bold gradient-text">HEXTEKO VN</span>
                 </div>
                 
                 <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition">
                         <i class="fab fa-facebook-f text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition">
                         <i class="fab fa-telegram text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition">
                         <i class="fab fa-discord text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition">
                         <i class="fab fa-github text-xl"></i>
                     </a>
                 </div>
@@ -719,7 +777,7 @@
 
     <!-- Contact Modal -->
     <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm contact-modal" id="contact-modal">
-        <div class="glass-effect border border-gray-800 rounded-xl max-w-md w-full mx-4 relative neon-effect">
+        <div class="glass-effect border border-gray-800 rounded-xl max-w-md w-full mx-4 relative gradient-border">
             <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="close-modal">
                 <i class="fas fa-times text-xl"></i>
             </button>
@@ -728,10 +786,10 @@
                 <h3 class="text-2xl font-bold mb-2 gradient-text" id="modal-service-title">Liên hệ đặt hàng</h3>
                 <p class="text-gray-400 mb-6">Vui lòng chuyển khoản theo thông tin bên dưới và gửi xác nhận cho chúng tôi</p>
                 
-                <div class="bg-gray-800 rounded-lg p-4 mb-6">
+                <div class="bg-gray-900 rounded-lg p-4 mb-6">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-university text-white text-xl"></i>
+                        <div class="feature-icon w-12 h-12 mr-4">
+                            <i class="fas fa-university text-xl"></i>
                         </div>
                         <div>
                             <h4 class="font-bold">TRAN PHAM ANH KHOI</h4>
@@ -749,26 +807,26 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-400">Nội dung:</span>
-                            <span class="font-mono">THÔNG TIN LIÊN HỆ <span id="modal-service-code"></span></span>
+                            <span class="font-mono">HEXTEKO_<span id="modal-service-code"></span></span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="mb-6">
                     <h4 class="font-bold mb-2">Sau khi chuyển khoản, vui lòng liên hệ:</h4>
-                    <div class="flex items-center space-x-4">
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center neon-effect">
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="#" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg flex items-center shadow hover:shadow-blue-500/20">
                             <i class="fab fa-discord text-white mr-2"></i>
                             Discord
                         </a>
-                        <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center neon-effect">
+                        <a href="#" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg flex items-center shadow hover:shadow-blue-500/20">
                             <i class="fas fa-phone-alt text-white mr-2"></i>
                             0963009425
                         </a>
                     </div>
                 </div>
                 
-                <button class="w-full bg-white hover:bg-gray-200 text-black py-3 rounded-lg font-medium transition neon-effect" id="confirm-payment">
+                <button class="w-full bg-white hover:bg-gray-100 text-gray-900 py-3 rounded-lg font-medium transition shadow hover:shadow-blue-500/20" id="confirm-payment">
                     <i class="fas fa-check-circle mr-2"></i> Tôi đã chuyển khoản
                 </button>
             </div>
@@ -777,8 +835,8 @@
 
     <!-- Success Toast -->
     <div class="fixed bottom-4 right-4 z-50 hidden" id="success-toast">
-        <div class="bg-white text-black px-6 py-3 rounded-lg shadow-lg flex items-center neon-effect">
-            <i class="fas fa-check-circle mr-2"></i>
+        <div class="bg-white text-gray-900 px-6 py-3 rounded-lg shadow-lg flex items-center shadow-blue-500/20">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
             <span>Đã gửi thông tin thành công! Chúng tôi sẽ liên hệ lại sớm.</span>
         </div>
     </div>
@@ -799,7 +857,7 @@
                         }
                     },
                     "color": {
-                        "value": "#ffffff"
+                        "value": "#3b82f6"
                     },
                     "shape": {
                         "type": "circle",
@@ -834,7 +892,7 @@
                     "line_linked": {
                         "enable": true,
                         "distance": 150,
-                        "color": "#ffffff",
+                        "color": "#3b82f6",
                         "opacity": 0.2,
                         "width": 1
                     },
@@ -925,15 +983,15 @@
                 
                 // Set service code
                 if (service.includes('Bot Telegram')) {
-                    modalServiceCode.textContent = 'Zalo & Discord';
+                    modalServiceCode.textContent = 'BOT_TELEGRAM';
                 } else if (service.includes('Bot Discord')) {
-                    modalServiceCode.textContent = 'Zalo & Discord';
+                    modalServiceCode.textContent = 'BOT_DISCORD';
                 } else if (service.includes('Panel Cheat')) {
-                    modalServiceCode.textContent = 'Zalo & Discord';
+                    modalServiceCode.textContent = 'PANEL_CHEAT';
                 } else if (service.includes('Red Team')) {
-                    modalServiceCode.textContent = 'Zalo & Discord';
+                    modalServiceCode.textContent = 'RED_TEAM';
                 } else {
-                    modalServiceCode.textContent = 'Zalo & Discord';
+                    modalServiceCode.textContent = 'CUSTOM';
                 }
                 
                 contactModal.classList.add('active');
