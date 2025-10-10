@@ -1,143 +1,232 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEXTEKO VN - Giải Pháp Công Nghệ Chuyên Nghiệp</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #f3f4f6;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-        }
-        
-        /* Particle background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            background-color: #0a0a0a;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 25px rgba(59, 130, 246, 0.15);
-        }
-        
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-            }
-        }
-        
-        .contact-modal {
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .contact-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Glass morphism effect */
-        .glass-effect {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Floating animation */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #111827;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
-        }
-        
-        /* Typewriter effect */
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid #3b82f6;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: 
-                typing 3.5s steps(40, end),
-                blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #3b82f6; }
-        }
-        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rút Xu TikTok</title>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+      max-width: 800px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #111;
+    }
+    /* Input Username */
+    .user-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin: 20px 0;
+      background: #fafafa;
+    }
+    .user-box img {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+      opacity: 0.6;
+    }
+    .user-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 16px;
+      background: transparent;
+    }
+    /* Grid Coins */
+    .coins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+    .coin-card {
+      background: #fafafa;
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .coin-card img {
+      width: 28px;
+      height: 28px;
+    }
+    .coin-card:hover {
+      border-color: #ff0050;
+      transform: translateY(-3px);
+    }
+    .coin-card.active {
+      border-color: #ff0050;
+      background: #fff0f5;
+      box-shadow: 0 0 12px rgba(255,0,80,0.15);
+    }
+    /* Total & Button */
+    .bottom {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    button {
+      padding: 14px 32px;
+      background: #ff0050;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.25s;
+    }
+    button:hover {
+      background: #e60048;
+    }
+    @media (max-width: 600px) {
+      .bottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .total {
+        text-align: center;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Rút Xu TikTok</h2>
+
+    <!-- Nhập Username -->
+    <div class="user-box">
+      <img src="https://i.imgur.com/ViazpQP.png" alt="user">
+      <input type="text" id="username" placeholder="Nhập username TikTok">
+    </div>
+
+    <!-- Chọn gói xu -->
+    <div class="coins-grid">
+      <div class="coin-card" onclick="selectCoin(this,30)">
+        <img src="https://i.imgur.com/12j33cb.png"> 30
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,350)">
+        <img src="https://i.imgur.com/12j33cb.png"> 350
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,700)">
+        <img src="https://i.imgur.com/12j33cb.png"> 700
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,1400)">
+        <img src="https://i.imgur.com/12j33cb.png"> 1,400
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,3500)">
+        <img src="https://i.imgur.com/12j33cb.png"> 3,500
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,7000)">
+        <img src="https://i.imgur.com/12j33cb.png"> 7,000
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,17500)">
+        <img src="https://i.imgur.com/12j33cb.png"> 17,500
+      </div>
+    </div>
+
+    <!-- Tổng + Nút -->
+    <div class="bottom">
+      <div class="total">Tổng: <span id="total">0</span> xu</div>
+      <button onclick="confirm()">Rút</button>
+    </div>
+  </div>
+
+  <script>
+    let selected = null;
+    let balance = 5000; // ví dụ: số dư hiện có
+
+    function selectCoin(el, amount) {
+      document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
+      el.classList.add("active");
+      selected = amount;
+      document.getElementById("total").innerText = amount;
+    }
+
+    function confirm() {
+      const username = document.getElementById("username").value;
+
+      if (!username) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cảnh báo',
+          text: 'Vui lòng nhập username TikTok!',
+          confirmButtonColor: '#7c3aed'
+        });
+        return;
+      }
+
+      if (!selected) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cảnh báo',
+          text: 'Vui lòng chọn gói xu cần rút!',
+          confirmButtonColor: '#7c3aed'
+        });
+        return;
+      }
+
+      if (selected > balance) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Rút xu thất bại',
+          text: 'Không đủ số dư để rút!',
+          confirmButtonColor: '#ff0050'
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Thành công',
+        text: `Rút ${selected} xu cho ${username} thành công, vui lòng đợi 5-10 phút để xử lý!`,
+        confirmButtonColor: '#16a34a'
+      });
+    }
+  </script>
+</body>
+</html>
         /* Gradient border */
         .gradient-border {
             position: relative;
