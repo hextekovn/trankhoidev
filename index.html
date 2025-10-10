@@ -253,24 +253,7 @@
       <input type="text" id="username" placeholder="Nhập username TikTok">
     </div>
 
-    <!-- Phương thức thanh toán -->
-    <div class="payment-method">
-      <div class="payment-method-title">Phương thức thanh toán:</div>
-      <div class="payment-options">
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
-          <img src="https://i.imgur.com/4V5bP6Q.png" alt="MoMo">
-          <span>MoMo</span>
-        </div>
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'zalo')">
-          <img src="https://i.imgur.com/3p1b9hK.png" alt="ZaloPay">
-          <span>ZaloPay</span>
-        </div>
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
-          <img src="https://i.imgur.com/2w3bX0n.png" alt="Bank">
-          <span>Ngân hàng</span>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- Chọn gói xu -->
     <div class="coins-grid">
@@ -311,7 +294,7 @@
       </div>
       
       <!-- Custom Coin Card -->
-      <div class="custom-coin-card" id="custom-coin-card">
+      <div class="coin-card" id="custom-coin-card">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>Tùy Chỉnh</div>
         <div class="custom-input-group">
@@ -322,7 +305,24 @@
         </div>
       </div>
     </div>
-
+    <!-- Phương thức thanh toán -->
+    <div class="payment-method">
+      <div class="payment-method-title">Phương thức thanh toán:</div>
+      <div class="payment-options">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
+          <img src="https://i.imgur.com/4V5bP6Q.png" alt="MoMo">
+          <span>MoMo</span>
+        </div>
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'zalo')">
+          <img src="https://i.imgur.com/3p1b9hK.png" alt="ZaloPay">
+          <span>ZaloPay</span>
+        </div>
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
+          <img src="https://i.imgur.com/2w3bX0n.png" alt="Bank">
+          <span>Ngân hàng</span>
+        </div>
+      </div>
+    </div>
     <!-- Tổng + Nút -->
     <div class="bottom">
       <div>
