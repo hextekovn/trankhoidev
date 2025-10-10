@@ -98,22 +98,7 @@
       color: #666;
     }
     /* Custom Coin Input */
-    .custom-coin-card {
-      background: #fafafa;
-      border: 2px solid #ddd;
-      border-radius: 14px;
-      padding: 15px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.25s;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
+    
     .custom-coin-card:hover {
       border-color: #ff0050;
       transform: translateY(-3px);
@@ -248,7 +233,7 @@
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>Tùy Chỉnh</div>
         <div class="custom-input-group">
-          <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="1" oninput="updateCustomPrice()">
+          <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="30" oninput="updateCustomPrice()">
         </div>
         <div class="custom-price-info" id="custom-price-info">
           ₫ 0
@@ -260,7 +245,7 @@
     <div class="bottom">
       <div>
         <div class="total">Tổng xu: <span id="total">0</span> xu</div>
-        <div class="price">Thành tiền: <span id="price">0</span> VNĐ</div>
+        <div class="price">Thành tiền: ₫ <span id="price">0</span></div>
       </div>
       <button onclick="confirm()">Rút</button>
     </div>
