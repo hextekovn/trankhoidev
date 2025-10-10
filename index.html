@@ -55,10 +55,53 @@
       font-size: 16px;
       background: transparent;
     }
+    /* Payment Method */
+    .payment-method {
+      margin: 20px 0;
+    }
+    .payment-method-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .payment-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .payment-option {
+      flex: 1;
+      min-width: 120px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 12px 15px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .payment-option:hover {
+      border-color: #ff0050;
+    }
+    .payment-option.active {
+      border-color: #ff0050;
+      background: #fff0f5;
+      box-shadow: 0 0 8px rgba(255,0,80,0.15);
+    }
+    .payment-option img {
+      width: 24px;
+      height: 24px;
+    }
     /* Grid Coins */
     .coins-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 15px;
       margin-bottom: 20px;
     }
@@ -67,9 +110,9 @@
       background: #fafafa;
       border: 2px solid #ddd;
       border-radius: 14px;
-      padding: 20px;
+      padding: 15px 10px;
       text-align: center;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
       transition: all 0.25s;
@@ -78,6 +121,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
+      height: 80px;
     }
     .coin-card img {
       width: 28px;
@@ -98,7 +142,23 @@
       color: #666;
     }
     /* Custom Coin Input */
-    
+    .custom-coin-card {
+      background: #fafafa;
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      height: 80px;
+    }
     .custom-coin-card:hover {
       border-color: #ff0050;
       transform: translateY(-3px);
@@ -111,12 +171,12 @@
     .custom-input-group {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 5px;
       width: 100%;
     }
     .custom-input-group input {
       flex: 1;
-      padding: 8px 10px;
+      padding: 6px 8px;
       border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 14px;
@@ -128,7 +188,7 @@
       border-color: #ff0050;
     }
     .custom-price-info {
-      margin-top: 10px;
+      margin-top: 5px;
       font-size: 14px;
       color: #666;
       font-weight: normal;
@@ -177,6 +237,9 @@
       button {
         width: 100%;
       }
+      .payment-option {
+        min-width: 100px;
+      }
     }
   </style>
 </head>
@@ -190,9 +253,28 @@
       <input type="text" id="username" placeholder="Nhập username TikTok">
     </div>
 
+    <!-- Phương thức thanh toán -->
+    <div class="payment-method">
+      <div class="payment-method-title">Phương thức thanh toán:</div>
+      <div class="payment-options">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
+          <img src="https://i.imgur.com/4V5bP6Q.png" alt="MoMo">
+          <span>MoMo</span>
+        </div>
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'zalo')">
+          <img src="https://i.imgur.com/3p1b9hK.png" alt="ZaloPay">
+          <span>ZaloPay</span>
+        </div>
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
+          <img src="https://i.imgur.com/2w3bX0n.png" alt="Bank">
+          <span>Ngân hàng</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Chọn gói xu -->
     <div class="coins-grid">
-      <div class="coin-card" onclick="selectCoin(this,30)">
+      <div class="coin-card" onclick="selectCoin(this,70)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>70 xu</div>
         <div class="coin-price">₫ 18.000</div>
@@ -229,11 +311,11 @@
       </div>
       
       <!-- Custom Coin Card -->
-      <div class="coin-card" id="custom-coin-card">
+      <div class="custom-coin-card" id="custom-coin-card">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>Tùy Chỉnh</div>
         <div class="custom-input-group">
-          <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="30" oninput="updateCustomPrice()">
+          <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="1" oninput="updateCustomPrice()">
         </div>
         <div class="custom-price-info" id="custom-price-info">
           ₫ 0
@@ -245,7 +327,7 @@
     <div class="bottom">
       <div>
         <div class="total">Tổng xu: <span id="total">0</span> xu</div>
-        <div class="price">Thành tiền: ₫ <span id="price">0</span></div>
+        <div class="price">Thành tiền: <span id="price">0</span> VNĐ</div>
       </div>
       <button onclick="confirm()">Rút</button>
     </div>
@@ -255,6 +337,7 @@
     let selected = null;
     let selectedPrice = 0;
     let isCustomCoin = false;
+    let selectedPaymentMethod = null;
     let balance = 9009999990; // ví dụ: số dư hiện có
 
     function selectCoin(el, amount) {
@@ -294,6 +377,12 @@
       updateDisplay();
     }
 
+    function selectPaymentMethod(el, method) {
+      document.querySelectorAll(".payment-option").forEach(p => p.classList.remove("active"));
+      el.classList.add("active");
+      selectedPaymentMethod = method;
+    }
+
     function updateDisplay() {
       document.getElementById("total").innerText = selected ? selected.toLocaleString() : "0";
       document.getElementById("price").innerText = selectedPrice ? selectedPrice.toLocaleString() : "0";
@@ -322,6 +411,16 @@
         return;
       }
 
+      if (!selectedPaymentMethod) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cảnh báo',
+          text: 'Vui lòng chọn phương thức thanh toán!',
+          confirmButtonColor: '#7c3aed'
+        });
+        return;
+      }
+
       if (selected > balance) {
         Swal.fire({
           icon: 'error',
@@ -336,6 +435,452 @@
         icon: 'success',
         title: 'Thành công',
         html: `Rút <strong>${selected.toLocaleString()} xu</strong> cho <strong>${username}</strong> thành công!<br>
+               Phương thức thanh toán: <strong>${selectedPaymentMethod}</strong><br>
+               Tổng tiền: <strong>${selectedPrice.toLocaleString()} VNĐ</strong><br>
+               Vui lòng đợi 5-10 phút để xử lý!`,
+        confirmButtonColor: '#16a34a'
+      });
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rút Xu TikTok</title>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      border: 1px solid #eee;
+      max-width: 800px;
+      width: 100%;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #111;
+    }
+    /* Input Username */
+    .user-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin: 20px 0;
+      background: #fafafa;
+    }
+    .user-box img {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+      opacity: 0.6;
+    }
+    .user-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 16px;
+      background: transparent;
+    }
+    /* Payment Method */
+    .payment-method {
+      margin: 20px 0;
+    }
+    .payment-method-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .payment-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .payment-option {
+      flex: 1;
+      min-width: 120px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 12px 15px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .payment-option:hover {
+      border-color: #ff0050;
+    }
+    .payment-option.active {
+      border-color: #ff0050;
+      background: #fff0f5;
+      box-shadow: 0 0 8px rgba(255,0,80,0.15);
+    }
+    .payment-option img {
+      width: 24px;
+      height: 24px;
+    }
+    /* Grid Coins */
+    .coins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .coin-card {
+      background: #fafafa;
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      height: 80px;
+    }
+    .coin-card img {
+      width: 28px;
+      height: 28px;
+    }
+    .coin-card:hover {
+      border-color: #ff0050;
+      transform: translateY(-3px);
+    }
+    .coin-card.active {
+      border-color: #ff0050;
+      background: #fff0f5;
+      box-shadow: 0 0 12px rgba(255,0,80,0.15);
+    }
+    .coin-price {
+      font-size: 14px;
+      font-weight: normal;
+      color: #666;
+    }
+    /* Custom Coin Input */
+    .custom-coin-card {
+      background: #fafafa;
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      height: 80px;
+    }
+    .custom-coin-card:hover {
+      border-color: #ff0050;
+      transform: translateY(-3px);
+    }
+    .custom-coin-card.active {
+      border-color: #ff0050;
+      background: #fff0f5;
+      box-shadow: 0 0 12px rgba(255,0,80,0.15);
+    }
+    .custom-input-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+      width: 100%;
+    }
+    .custom-input-group input {
+      flex: 1;
+      padding: 6px 8px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      text-align: center;
+      width: 100%;
+    }
+    .custom-input-group input:focus {
+      border-color: #ff0050;
+    }
+    .custom-price-info {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #666;
+      font-weight: normal;
+    }
+    /* Total & Button */
+    .bottom {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff0050;
+    }
+    button {
+      padding: 14px 32px;
+      background: #ff0050;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.25s;
+    }
+    button:hover {
+      background: #e60048;
+    }
+    @media (max-width: 600px) {
+      .bottom {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .total, .price {
+        text-align: center;
+      }
+      button {
+        width: 100%;
+      }
+      .payment-option {
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Rút Xu TikTok</h2>
+
+    <!-- Nhập Username -->
+    <div class="user-box">
+      <img src="https://i.imgur.com/ViazpQP.png" alt="user">
+      <input type="text" id="username" placeholder="Nhập username TikTok">
+    </div>
+
+  
+
+    <!-- Chọn gói xu -->
+    <div class="coins-grid">
+      <div class="coin-card" onclick="selectCointhis,70)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>70 xu</div>
+        <div class="coin-price">₫ 18.000</div>
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,350)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>350 xu</div>
+        <div class="coin-price">₫ 94.500</div>
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,700)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>700 xu</div>
+        <div class="coin-price">₫ 189.000</div>
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,1400)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>1,400 xu</div>
+        <div class="coin-price">₫ 378.000</div>
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,3500)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>3,500 xu</div>
+        <div class="coin-price">₫ 945.000</div>
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,7000)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>7,000 xu</div>
+        <div class="coin-price">₫ 1.890.000</div>
+      </div>
+      <div class="coin-card" onclick="selectCoin(this,17500)">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>17,500 xu</div>
+        <div class="coin-price">₫ 4.725.000</div>
+      </div>
+      
+      <!-- Custom Coin Card -->
+      <div class="custom-coin-card" id="custom-coin-card">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>Tùy Chỉnh</div>
+        <div class="custom-input-group">
+          <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="1" oninput="updateCustomPrice()">
+        </div>
+        <div class="custom-price-info" id="custom-price-info">
+          ₫ 0
+        </div>
+      </div>
+    </div>
+    <!-- Phương thức thanh toán -->
+    <div class="payment-method">
+      <div class="payment-method-title">Phương thức thanh toán:</div>
+      <div class="payment-options">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
+          <img src="https://i.imgur.com/4V5bP6Q.png" alt="MoMo">
+          <span>MoMo</span>
+        </div>
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'zalo')">
+          <img src="https://i.imgur.com/3p1b9hK.png" alt="ZaloPay">
+          <span>ZaloPay</span>
+        </div>
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
+          <img src="https://i.imgur.com/2w3bX0n.png" alt="Bank">
+          <span>Ngân hàng</span>
+        </div>
+      </div>
+    </div>
+    <!-- Tổng + Nút -->
+    <div class="bottom">
+      <div>
+        <div class="total">Tổng xu: <span id="total">0</span> xu</div>
+        <div class="price">Thành tiền: <span id="price">0</span> VNĐ</div>
+      </div>
+      <button onclick="confirm()">Rút</button>
+    </div>
+  </div>
+
+  <script>
+    let selected = null;
+    let selectedPrice = 0;
+    let isCustomCoin = false;
+    let selectedPaymentMethod = null;
+    let balance = 9009999990; // ví dụ: số dư hiện có
+
+    function selectCoin(el, amount) {
+      document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
+      document.getElementById("custom-coin-card").classList.remove("active");
+      document.getElementById("custom-coin-input").value = '';
+      
+      el.classList.add("active");
+      selected = amount;
+      selectedPrice = amount * 270; // Tính giá dựa trên số xu
+      isCustomCoin = false;
+      
+      updateDisplay();
+    }
+
+    function updateCustomPrice() {
+      const customInput = document.getElementById("custom-coin-input");
+      const amount = parseInt(customInput.value);
+      const priceInfo = document.getElementById("custom-price-info");
+      
+      if (isNaN(amount) || amount < 1) {
+        priceInfo.textContent = "₫ 0";
+        return;
+      }
+      
+      const price = amount * 270;
+      priceInfo.textContent = `₫ ${price.toLocaleString()}`;
+      
+      // Tự động chọn custom khi nhập số
+      document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
+      document.getElementById("custom-coin-card").classList.add("active");
+      
+      selected = amount;
+      selectedPrice = price;
+      isCustomCoin = true;
+      
+      updateDisplay();
+    }
+
+    function selectPaymentMethod(el, method) {
+      document.querySelectorAll(".payment-option").forEach(p => p.classList.remove("active"));
+      el.classList.add("active");
+      selectedPaymentMethod = method;
+    }
+
+    function updateDisplay() {
+      document.getElementById("total").innerText = selected ? selected.toLocaleString() : "0";
+      document.getElementById("price").innerText = selectedPrice ? selectedPrice.toLocaleString() : "0";
+    }
+
+    function confirm() {
+      const username = document.getElementById("username").value;
+
+      if (!username) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cảnh báo',
+          text: 'Vui lòng nhập username TikTok!',
+          confirmButtonColor: '#7c3aed'
+        });
+        return;
+      }
+
+      if (!selected) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cảnh báo',
+          text: 'Vui lòng chọn gói xu cần rút!',
+          confirmButtonColor: '#7c3aed'
+        });
+        return;
+      }
+
+      if (!selectedPaymentMethod) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Cảnh báo',
+          text: 'Vui lòng chọn phương thức thanh toán!',
+          confirmButtonColor: '#7c3aed'
+        });
+        return;
+      }
+
+      if (selected > balance) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Rút xu thất bại',
+          text: 'Không đủ số dư để rút!',
+          confirmButtonColor: '#ff0050'
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Thành công',
+        html: `Rút <strong>${selected.toLocaleString()} xu</strong> cho <strong>${username}</strong> thành công!<br>
+               Phương thức thanh toán: <strong>${selectedPaymentMethod}</strong><br>
                Tổng tiền: <strong>${selectedPrice.toLocaleString()} VNĐ</strong><br>
                Vui lòng đợi 5-10 phút để xử lý!`,
         confirmButtonColor: '#16a34a'
