@@ -62,6 +62,7 @@
       gap: 15px;
       margin-bottom: 20px;
     }
+    
     .coin-card {
       background: #fafafa;
       border: 2px solid #ddd;
@@ -101,7 +102,7 @@
       background: #fafafa;
       border: 2px solid #ddd;
       border-radius: 14px;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
       font-size: 18px;
       font-weight: bold;
@@ -126,15 +127,17 @@
       display: flex;
       gap: 10px;
       margin-top: 10px;
+      width: 100%;
     }
     .custom-input-group input {
       flex: 1;
-      padding: 12px 15px;
+      padding: 8px 10px;
       border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
+      border-radius: 8px;
+      font-size: 14px;
       outline: none;
       text-align: center;
+      width: 100%;
     }
     .custom-input-group input:focus {
       border-color: #ff0050;
@@ -206,49 +209,49 @@
     <div class="coins-grid">
       <div class="coin-card" onclick="selectCoin(this,30)">
         <img src="https://i.imgur.com/12j33cb.png"> 
-        <div>30 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div>70 xu</div>
+        <div class="coin-price">₫ 18.000</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,350)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>350 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div class="coin-price">₫ 94.500</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,700)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>700 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div class="coin-price">₫ 189.000</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,1400)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>1,400 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div class="coin-price">₫ 378.000</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,3500)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>3,500 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div class="coin-price">₫ 945.000</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,7000)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>7,000 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div class="coin-price">₫ 1.890.000</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,17500)">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>17,500 xu</div>
-        <div class="coin-price">10.000 VNĐ</div>
+        <div class="coin-price">₫ 4.725.000</div>
       </div>
       
       <!-- Custom Coin Card -->
       <div class="coin-card" id="custom-coin-card">
         <img src="https://i.imgur.com/12j33cb.png"> 
-        <div>Custom</div>
+        <div>Tùy Chỉnh</div>
         <div class="custom-input-group">
           <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="1" oninput="updateCustomPrice()">
         </div>
         <div class="custom-price-info" id="custom-price-info">
-          Giá: 0 VNĐ
+          ₫ 0
         </div>
       </div>
     </div>
@@ -276,7 +279,7 @@
       
       el.classList.add("active");
       selected = amount;
-      selectedPrice = 10000; // Giá cố định cho các gói có sẵn
+      selectedPrice = amount * 270; // Tính giá dựa trên số xu
       isCustomCoin = false;
       
       updateDisplay();
@@ -288,12 +291,12 @@
       const priceInfo = document.getElementById("custom-price-info");
       
       if (isNaN(amount) || amount < 1) {
-        priceInfo.textContent = "Giá: 0 VNĐ";
+        priceInfo.textContent = "₫ 0";
         return;
       }
       
-      const price = amount * 0.27;
-      priceInfo.textContent = `Giá: ${price.toLocaleString()} VNĐ`;
+      const price = amount * 270;
+      priceInfo.textContent = `₫ ${price.toLocaleString()}`;
       
       // Tự động chọn custom khi nhập số
       document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
