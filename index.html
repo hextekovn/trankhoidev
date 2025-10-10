@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -60,6 +60,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 15px;
+      margin-bottom: 20px;
     }
     .coin-card {
       background: #fafafa;
@@ -72,6 +73,7 @@
       cursor: pointer;
       transition: all 0.25s;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 8px;
@@ -89,6 +91,60 @@
       background: #fff0f5;
       box-shadow: 0 0 12px rgba(255,0,80,0.15);
     }
+    .coin-price {
+      font-size: 14px;
+      font-weight: normal;
+      color: #666;
+    }
+    /* Custom Coin Input */
+    .custom-coin-card {
+      background: #fafafa;
+      border: 2px solid #ddd;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .custom-coin-card:hover {
+      border-color: #ff0050;
+      transform: translateY(-3px);
+    }
+    .custom-coin-card.active {
+      border-color: #ff0050;
+      background: #fff0f5;
+      box-shadow: 0 0 12px rgba(255,0,80,0.15);
+    }
+    .custom-input-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .custom-input-group input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+      text-align: center;
+    }
+    .custom-input-group input:focus {
+      border-color: #ff0050;
+    }
+    .custom-price-info {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #666;
+      font-weight: normal;
+    }
     /* Total & Button */
     .bottom {
       margin-top: 30px;
@@ -102,6 +158,11 @@
       font-size: 18px;
       font-weight: bold;
       color: #333;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff0050;
     }
     button {
       padding: 14px 32px;
@@ -122,7 +183,7 @@
         flex-direction: column;
         align-items: stretch;
       }
-      .total {
+      .total, .price {
         text-align: center;
       }
       button {
@@ -144,44 +205,110 @@
     <!-- Chọn gói xu -->
     <div class="coins-grid">
       <div class="coin-card" onclick="selectCoin(this,30)">
-        <img src="https://i.imgur.com/12j33cb.png"> 30
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>30 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,350)">
-        <img src="https://i.imgur.com/12j33cb.png"> 350
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>350 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,700)">
-        <img src="https://i.imgur.com/12j33cb.png"> 700
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>700 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,1400)">
-        <img src="https://i.imgur.com/12j33cb.png"> 1,400
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>1,400 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,3500)">
-        <img src="https://i.imgur.com/12j33cb.png"> 3,500
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>3,500 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,7000)">
-        <img src="https://i.imgur.com/12j33cb.png"> 7,000
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>7,000 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
       </div>
       <div class="coin-card" onclick="selectCoin(this,17500)">
-        <img src="https://i.imgur.com/12j33cb.png"> 17,500
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>17,500 xu</div>
+        <div class="coin-price">10.000 VNĐ</div>
+      </div>
+      
+      <!-- Custom Coin Card -->
+      <div class="coin-card" id="custom-coin-card">
+        <img src="https://i.imgur.com/12j33cb.png"> 
+        <div>Custom</div>
+        <div class="custom-input-group">
+          <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="1" oninput="updateCustomPrice()">
+        </div>
+        <div class="custom-price-info" id="custom-price-info">
+          Giá: 0 VNĐ
+        </div>
       </div>
     </div>
 
     <!-- Tổng + Nút -->
     <div class="bottom">
-      <div class="total">Tổng: <span id="total">0</span> xu</div>
+      <div>
+        <div class="total">Tổng xu: <span id="total">0</span> xu</div>
+        <div class="price">Thành tiền: <span id="price">0</span> VNĐ</div>
+      </div>
       <button onclick="confirm()">Rút</button>
     </div>
   </div>
 
   <script>
     let selected = null;
+    let selectedPrice = 0;
+    let isCustomCoin = false;
     let balance = 9009999990; // ví dụ: số dư hiện có
 
     function selectCoin(el, amount) {
       document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
+      document.getElementById("custom-coin-card").classList.remove("active");
+      document.getElementById("custom-coin-input").value = '';
+      
       el.classList.add("active");
       selected = amount;
-      document.getElementById("total").innerText = amount;
+      selectedPrice = 10000; // Giá cố định cho các gói có sẵn
+      isCustomCoin = false;
+      
+      updateDisplay();
+    }
+
+    function updateCustomPrice() {
+      const customInput = document.getElementById("custom-coin-input");
+      const amount = parseInt(customInput.value);
+      const priceInfo = document.getElementById("custom-price-info");
+      
+      if (isNaN(amount) || amount < 1) {
+        priceInfo.textContent = "Giá: 0 VNĐ";
+        return;
+      }
+      
+      const price = amount * 0.27;
+      priceInfo.textContent = `Giá: ${price.toLocaleString()} VNĐ`;
+      
+      // Tự động chọn custom khi nhập số
+      document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
+      document.getElementById("custom-coin-card").classList.add("active");
+      
+      selected = amount;
+      selectedPrice = price;
+      isCustomCoin = true;
+      
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      document.getElementById("total").innerText = selected ? selected.toLocaleString() : "0";
+      document.getElementById("price").innerText = selectedPrice ? selectedPrice.toLocaleString() : "0";
     }
 
     function confirm() {
@@ -220,7 +347,9 @@
       Swal.fire({
         icon: 'success',
         title: 'Thành công',
-        text: `Rút ${selected} xu cho ${username} thành công, vui lòng đợi 5-10 phút để xử lý!`,
+        html: `Rút <strong>${selected.toLocaleString()} xu</strong> cho <strong>${username}</strong> thành công!<br>
+               Tổng tiền: <strong>${selectedPrice.toLocaleString()} VNĐ</strong><br>
+               Vui lòng đợi 5-10 phút để xử lý!`,
         confirmButtonColor: '#16a34a'
       });
     }
