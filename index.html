@@ -187,12 +187,6 @@
     .custom-input-group input:focus {
       border-color: #ff0050;
     }
-    .custom-price-info {
-      margin-top: 5px;
-      font-size: 14px;
-      color: #666;
-      font-weight: normal;
-    }
     /* Total & Button */
     .bottom {
       margin-top: 30px;
@@ -253,8 +247,6 @@
       <input type="text" id="username" placeholder="Nhập username TikTok">
     </div>
 
-    
-
     <!-- Chọn gói xu -->
     <div class="coins-grid">
       <div class="coin-card" onclick="selectCoin(this,70)">
@@ -294,33 +286,32 @@
       </div>
       
       <!-- Custom Coin Card -->
-      <div class="coin-card" id="custom-coin-card">
+      <div class="coin-card" id="custom-coin-card" onclick="selectCustomCoin()">
         <img src="https://i.imgur.com/12j33cb.png"> 
         <div>Tùy Chỉnh</div>
         <div class="custom-input-group">
           <input type="number" id="custom-coin-input" placeholder="Nhập số xu" min="1" oninput="updateCustomPrice()">
         </div>
-        
       </div>
     </div>
     <!-- Phương thức thanh toán -->
     <div class="payment-method">
       <div class="payment-method-title">Phương thức thanh toán:</div>
       <div class="payment-options">
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'MoMo')">
           <img src="https://sf-static.upanhlaylink.com/img/image_20251011a01bb00124198fba79ed675955bdfdf9.jpg" alt="MoMo">
           <span>MoMo</span>
         </div>
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'zalo')">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'ZaloPay')">
           <img src="https://sf-static.upanhlaylink.com/img/image_2025101105364245696652b4245f3c48cb4d26c3.jpg" alt="ZaloPay">
           <span>ZaloPay</span>
         </div>
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'bank')">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'VNPAY QR')">
           <img src="https://sf-static.upanhlaylink.com/img/image_20251011d544ea83a95d8069aacde75d40aaef7e.jpg" alt="Bank">
           <span>VNPAY QR</span>
         </div>
-        <div class="payment-option" onclick="selectPaymentMethod(this, 'momo')">
-          <img src="https://sf-static.upanhlaylink.com/img/image_20251011596a7ce0cf86f9ae1baa5dc64fa9d4b0.jpg" alt="momo">
+        <div class="payment-option" onclick="selectPaymentMethod(this, 'Visa')">
+          <img src="https://sf-static.upanhlaylink.com/img/image_20251011596a7ce0cf86f9ae1baa5dc64fa9d4b0.jpg" alt="Visa">
           <span>Visa</span>
         </div>
       </div>
@@ -344,7 +335,6 @@
 
     function selectCoin(el, amount) {
       document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
-      document.getElementById("custom-coin-card").classList.remove("active");
       document.getElementById("custom-coin-input").value = '';
       
       el.classList.add("active");
@@ -355,25 +345,31 @@
       updateDisplay();
     }
 
+    function selectCustomCoin() {
+      document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
+      document.getElementById("custom-coin-card").classList.add("active");
+      
+      const customInput = document.getElementById("custom-coin-input");
+      customInput.focus();
+    }
+
     function updateCustomPrice() {
       const customInput = document.getElementById("custom-coin-input");
       const amount = parseInt(customInput.value);
-      const priceInfo = document.getElementById("custom-price-info");
       
       if (isNaN(amount) || amount < 1) {
-        priceInfo.textContent = "₫ 0";
+        selected = null;
+        selectedPrice = 0;
+        updateDisplay();
         return;
       }
-      
-      const price = amount * 270;
-      priceInfo.textContent = `₫ ${price.toLocaleString()}`;
       
       // Tự động chọn custom khi nhập số
       document.querySelectorAll(".coin-card").forEach(c => c.classList.remove("active"));
       document.getElementById("custom-coin-card").classList.add("active");
       
       selected = amount;
-      selectedPrice = price;
+      selectedPrice = amount * 270;
       isCustomCoin = true;
       
       updateDisplay();
@@ -445,4 +441,4 @@
     }
   </script>
 </body>
-  
+          </html>
